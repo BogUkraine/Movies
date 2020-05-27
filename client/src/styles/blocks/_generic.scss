@@ -16,3 +16,69 @@ a:visited, a:hover, a {
     cursor: pointer;
     font-size: 24px;
 }
+
+.field {
+    width: 100%;
+    box-sizing: border-box;
+    height: 30px;
+    background-color: transparent;
+    font-size: 18px;
+    color: $font-color;
+    padding: 0 10px;
+    border: 0;
+    border-bottom: 2px solid $color-light;
+    outline: 0;
+    margin: 10px 0;
+
+    &--area {
+        font-family: 'Segoe UI', Roboto, Oxygen;
+        width: 100%;
+        background-color: transparent;
+        font-size: 18px;
+        color: $font-color;
+        padding: 5px;
+        box-sizing: border-box;
+        border-color: $color-light;
+        border-width: 2px;
+        resize: none;
+        height: $text-area-height;
+    }
+}
+
+.button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    outline: 0;
+    width: $button-width;
+    height: $button-height;
+    color: $font-color;
+    background-color: $color-light;
+    font-size: $font-size;
+    border: 0;
+    transition: all ease 0.3s;
+
+    &:hover {
+        background-color: $button-color-hover;
+    }
+
+    &:disabled {
+        cursor: initial;
+        //background-color: $button-disabled-color;
+    }
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+    background: $scrollbar-color;
+}
+  
+::-webkit-scrollbar-thumb {
+    background: $scrollbar-thumb-color;
+}
+  
+::-webkit-scrollbar-track {
+    background: $scrollbar-track-color;
+}
