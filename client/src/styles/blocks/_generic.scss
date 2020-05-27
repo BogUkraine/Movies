@@ -1,0 +1,18 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-size: $font-size;
+    color: $font-color;
+    font-family: 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    overflow: hidden;
+}
+
+a:visited, a:hover, a {
+    color: $font-color;
+    text-decoration: none;
+}
+
+.fa, .fas, .fab {
+    cursor: pointer;
+    font-size: 24px;
+}

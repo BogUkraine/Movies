@@ -1,0 +1,28 @@
+{
+  "name": "movies",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BogUkraine/Movies.git"
+  },
+  "keywords": [
+    "js",
+    "node",
+    "react",
+    "express",
+    "mocha",
+    "redux",
+    "sagas"
+  ],
+  "author": "Bohdan Lysov <bogukraine@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BogUkraine/Movies/issues"
+  },
+  "homepage": "https://github.com/BogUkraine/Movies#readme"
+}
