@@ -4,7 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server": "nodemon server/index.js",
+    "client": "npm run start --prefix client",
+    "all": "concurrently \"npm run server\" \"npm run client\""
   },
   "repository": {
     "type": "git",
@@ -24,5 +27,16 @@
   "bugs": {
     "url": "https://github.com/BogUkraine/Movies/issues"
   },
-  "homepage": "https://github.com/BogUkraine/Movies#readme"
+  "homepage": "https://github.com/BogUkraine/Movies#readme",
+  "dependencies": {
+    "@hapi/joi": "^17.1.1",
+    "config": "^3.3.1",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "mongoose": "^5.9.16"
+  },
+  "devDependencies": {
+    "mocha": "^7.2.0",
+    "nodemon": "^2.0.4"
+  }
 }
