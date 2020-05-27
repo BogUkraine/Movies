@@ -1,0 +1,54 @@
+.file {
+
+    &__wrapper {
+        max-width: $file-wrapper-max-width;
+        min-width: $file-wrapper-min-width;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    &__input {
+        outline: 0;
+        pointer-events: none;
+        user-select: none;
+        font-size: $font-size;
+        margin-left: -68px;
+    }
+
+    &__input::-webkit-file-upload-button {
+        visibility: hidden;
+    }
+
+    &
+
+    &__label {
+        width: $file-label-width;
+        border: 2px dashed $color-grey;
+        border-radius: 5px;
+        display: block;
+        padding: $file-label-padding;
+        transition: border 300ms ease;
+        cursor: pointer;
+        text-align: center
+    }
+
+    &__label i {
+        display: block;
+        font-size: 42px;
+        padding-bottom: 16px
+    }
+
+    &__label i {
+        color: grey;
+        transition: 200ms color
+    }
+
+    &__label:hover {
+        border: 2px solid $color-light;
+    }
+
+    &__label:hover i, &__label:hover .title{
+        color: $color-light;
+    }
+}

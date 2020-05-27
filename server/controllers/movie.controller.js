@@ -26,11 +26,13 @@ exports.getMovie = async (req, res) => {
 }
 
 exports.postMovie = async (req, res) => {
+    console.log(req.body, 'req.body')
     try {
+        console.log(req.body, 'req.body')
         const movie = await Movie.create(req.body);
         return res.status(200).send({message: 'Movies was successfully added', movie});
     } catch(error) {
-        return res.status(500).send({message: 'Can not post movie', error});
+        return res.status(500).send({message: error._message || 'Can not post movie' });
     }
 }
 

@@ -1,0 +1,31 @@
+.upload {
+    display: flex;
+    flex-wrap: nowrap;
+    width: 100%;
+    height: $main-height;
+    background: $color-dark;
+
+    &__wrapper {
+        flex: 4;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &__file {
+        flex: 4;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &__separator {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 80px;
+    }
+
+}
