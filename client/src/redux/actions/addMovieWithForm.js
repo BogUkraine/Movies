@@ -11,9 +11,12 @@ const postMovie = async (form) => {
 }
 
 function* addMovieWithForm({payload}) {
-    console.log(payload);
-    const data = yield call(postMovie, payload);
-    console.log(data);
+    const stars = payload.stars.split(',').map(item => item.trim());
+    const formData = {...payload, stars};
+    const {data, isOk} = yield call(postMovie, formData);
+    console.log('data',data);
+
+    yield put({ type: 'ADD_WARNING', payload: data.message, isOk});
 }
 
 export default addMovieWithForm;

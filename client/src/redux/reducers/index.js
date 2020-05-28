@@ -1,5 +1,5 @@
 import { combineReducers } from "redux";
 import movie from "./movie";
-import form from "./form";
+import warning from "./warning";
 
-export default combineReducers({ movie, form });
+export default combineReducers({ movie, warning });

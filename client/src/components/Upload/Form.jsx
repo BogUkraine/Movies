@@ -1,8 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { useDispatch } from 'react-redux';
 
 const Form = () => {
     const dispatch = useDispatch();
+    const titleField = useRef();
+    const yearField = useRef();
+    const starsField = useRef();
+    
     const [ form, setForm ] = useState({
         title: '',
         releaseYear: '',
@@ -19,6 +23,16 @@ const Form = () => {
 
     const clearForm = event => {
         event.preventDefault();
+        titleField.current.value = '';
+        yearField.current.value = '';
+        starsField.current.value = '';
+        setForm(prevForm => ({ 
+            title: '',
+            releaseYear: '',
+            format: prevForm.format,
+            stars: '',
+        }));
+        console.log(form)
     }
 
     const addMovie = event => {
@@ -37,6 +51,7 @@ const Form = () => {
                     <input type="text" className="form__field field"
                         placeholder="Enter movie title"
                         name="title"
+                        ref={titleField}
                         onChange={handleForm}/>
                 </label>
                 <label className="form__block form__block--text">
@@ -44,6 +59,7 @@ const Form = () => {
                     <input type="text" className="form__field field"
                         placeholder="Enter movie release year"
                         name="releaseYear"
+                        ref={yearField}
                         onChange={handleForm}/>
                 </label>
                 <section className="form__block">
@@ -88,6 +104,7 @@ const Form = () => {
                     <textarea type="text" className="form__field field field--area"
                         placeholder="Enter actors, separated by comma"
                         name="stars"
+                        ref={starsField}
                         onChange={handleForm}/>
                 </label>
                 <div className="form__buttons">
