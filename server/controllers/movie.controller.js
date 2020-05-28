@@ -1,5 +1,4 @@
 const Movie = require('../models/Movie');
-const fs = require('fs');
 
 exports.getMovies = async (req, res) => {
     try {
@@ -34,9 +33,10 @@ exports.postMovie = async (req, res) => {
 
 exports.postFromFile = async (req, res) => {
     try {
-        return res.status(200).send({message: 'Movies were successfully got', movie});
+        await Movie.insertMany(req.movies);
+        return res.status(200).send({message: 'Movies were successfully posted'});
     } catch(error) {
-        return res.status(500).send({message: 'Can not get movies', error});
+        return res.status(500).send({message: 'Can not post movies', error});
     }
 }
 

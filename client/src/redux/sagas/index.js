@@ -3,6 +3,7 @@ import { takeLatest, all } from 'redux-saga/effects';
 import fetchAllMovies from '../actions/fetchAllMovies';
 import addMovieWithForm from '../actions/addMovieWithForm';
 import deleteMovieWithId from '../actions/deleteMovieWithId';
+import addMovieWithFile from '../actions/addMovieWithFile';
 
 function* fetchAllMoviesWatcher() {
     yield takeLatest('FETCH_ALL_MOVIES', fetchAllMovies);
@@ -10,6 +11,10 @@ function* fetchAllMoviesWatcher() {
 
 function* addMovieWithFormWatcher() {
     yield takeLatest('ADD_MOVIE_WITH_FORM', addMovieWithForm);
+}
+
+function* addMovieWithFileWatcher() {
+    yield takeLatest('ADD_MOVIE_WITH_FILE', addMovieWithFile);
 }
 
 function* deleteMovieWithIdWatcher() {
@@ -21,5 +26,6 @@ export default function* rootSaga() {
         fetchAllMoviesWatcher(),
         addMovieWithFormWatcher(),
         deleteMovieWithIdWatcher(),
+        addMovieWithFileWatcher(),
     ]);
 }

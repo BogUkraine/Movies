@@ -37,7 +37,7 @@ const Upload = () => {
             <div className="upload">
                 <Form isDisabled={isDisabled} setIsDisabled={setIsDisabled}/>
                 <Separator />
-                <FileUpload />
+                <FileUpload isDisabled={isDisabled} setIsDisabled={setIsDisabled}/>
             </div>
             <NotificationContainer/>
         </>

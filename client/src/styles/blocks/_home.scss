@@ -4,6 +4,7 @@
     height: $main-height;
     background-color: $color-dark;
     box-sizing: border-box;
+    overflow-y: auto;
 
     &__list {
         display: flex;
