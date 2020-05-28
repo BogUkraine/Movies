@@ -8,9 +8,10 @@ import Separator from './Separator';
 
 const Upload = () => {
     const [isFirst, setIsFirst] = useState(true);
+    const [isDisabled, setIsDisabled] = useState(false);
     const { warning: alertMessage } = useSelector(state => state, shallowEqual);
+
     useEffect(() => {
-        console.log('alert message',alertMessage);
         if(!isFirst) {
             if (alertMessage.error !== '') 
                 NotificationManager.error(
@@ -24,6 +25,7 @@ const Upload = () => {
                     'Success',
                     3000
                 );
+            setIsDisabled(false);
         }
         else {
             setIsFirst(false);
@@ -33,7 +35,7 @@ const Upload = () => {
     return (
         <>
             <div className="upload">
-                <Form />
+                <Form isDisabled={isDisabled} setIsDisabled={setIsDisabled}/>
                 <Separator />
                 <FileUpload />
             </div>

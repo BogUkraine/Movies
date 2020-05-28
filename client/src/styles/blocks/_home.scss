@@ -1,6 +1,13 @@
 .home {
-    display: flex;
     width: 100%;
+    padding: $home-padding;
     height: $main-height;
     background-color: $color-dark;
+    box-sizing: border-box;
+
+    &__list {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
 }

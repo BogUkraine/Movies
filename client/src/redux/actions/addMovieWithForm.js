@@ -1,4 +1,3 @@
-import axios from 'axios';
 import { put, call } from 'redux-saga/effects';
 import httpHelper from '../../functions/httpHelper';
 
@@ -16,7 +15,7 @@ function* addMovieWithForm({payload}) {
     const {data, isOk} = yield call(postMovie, formData);
     console.log('data',data);
 
-    yield put({ type: 'ADD_WARNING', payload: data.message, isOk});
+    yield put({ type: 'SET_WARNING', payload: data.message, isOk});
 }
 
 export default addMovieWithForm;

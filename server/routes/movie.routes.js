@@ -9,7 +9,6 @@ router.get('/:id', controllers.getMovie);
 router.post('/', validation(joiSchemas.oneMovie, 'body'), controllers.postMovie);
 router.delete('/:id', controllers.deleteMovie);
 
-
 // later
 router.post('/file', controllers.postFromFile);
 

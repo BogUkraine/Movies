@@ -1,0 +1,25 @@
+.movie {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: $movie-height;
+
+    &__title {
+        margin-left: 20px;
+    }    
+
+    &__icons {
+        display: flex;
+        justify-content: space-evenly;
+        width: 100px;
+    }
+
+    &:not(:last-child) {
+        border-bottom: 2px solid $color-light;
+    }
+
+    &:hover {
+        background-color: $color-lighter;
+    }
+}

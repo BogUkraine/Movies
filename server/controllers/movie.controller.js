@@ -3,8 +3,7 @@ const fs = require('fs');
 
 exports.getMovies = async (req, res) => {
     try {
-        const movies = await Movie.find()
-
+        const movies = await Movie.find();
         return res.status(200).send({
             message: 'Movies were successfully got',
             movies,
@@ -18,7 +17,6 @@ exports.getMovie = async (req, res) => {
     try {
         const {movieId} = req.query.id;
         const movie = await Movie.findById(movieId);
-        
         return res.status(200).send({message: 'Movie was successfully got', movie});
     } catch(error) {
         return res.status(500).send({message: 'Can not get movie', error});
@@ -26,11 +24,9 @@ exports.getMovie = async (req, res) => {
 }
 
 exports.postMovie = async (req, res) => {
-    console.log(req.body, 'req.body')
     try {
-        console.log(req.body, 'req.body')
         const movie = await Movie.create(req.body);
-        return res.status(200).send({message: 'Movies was successfully added', movie});
+        return res.status(200).send({message: 'Movie was successfully added', movie});
     } catch(error) {
         return res.status(500).send({message: error._message || 'Can not post movie' });
     }
@@ -46,7 +42,7 @@ exports.postFromFile = async (req, res) => {
 
 exports.deleteMovie = async (req, res) => {
     try {
-        const movieId = req.query.id;
+        const movieId = req.params.id;
         await Movie.findByIdAndDelete(movieId);
         return res.status(200).send({message: 'Movie was successfully deleted'});
     } catch(error) {

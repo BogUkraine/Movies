@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react';
 import { useDispatch } from 'react-redux';
 
-const Form = () => {
+const Form = ({isDisabled, setIsDisabled}) => {
     const dispatch = useDispatch();
     const titleField = useRef();
     const yearField = useRef();
@@ -37,6 +37,7 @@ const Form = () => {
 
     const addMovie = event => {
         event.preventDefault();
+        setIsDisabled(true);
         dispatch({
             type: 'ADD_MOVIE_WITH_FORM',
             payload: form,
@@ -108,10 +109,16 @@ const Form = () => {
                         onChange={handleForm}/>
                 </label>
                 <div className="form__buttons">
-                    <button className="form__button button" onClick={addMovie}>
+                    <button
+                        className="form__button button"
+                        disabled={isDisabled}
+                        onClick={addMovie}>
                         Add
                     </button>
-                    <button className="form__button button" onClick={clearForm}>
+                    <button
+                        className="form__button button"
+                        disabled={isDisabled}
+                        onClick={clearForm}>
                         Clear
                     </button>
                 </div>

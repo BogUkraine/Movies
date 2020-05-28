@@ -1,8 +1,8 @@
-const initialState = {}
+const initialState = [];
 
 const movie = (state = initialState, action) => {
 	switch(action.type){
-		case('TEST'): {
+		case('SET_HOME_MOVIES'): {
 			return action.payload;
 		}
 		default: {

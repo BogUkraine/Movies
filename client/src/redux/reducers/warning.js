@@ -5,7 +5,7 @@ const initialState = {
 
 const warning = (state = initialState, action) => {
 	switch(action.type){
-		case('ADD_WARNING'): {
+		case('SET_WARNING'): {
 			if(!action.isOk) {
 				return {
 					error: action.payload,
