@@ -13,8 +13,7 @@ function* addMovieWithForm({payload}) {
     const stars = payload.stars.split(',').map(item => item.trim());
     const formData = {...payload, stars};
     const {data, isOk} = yield call(postMovie, formData);
-    console.log('data',data);
-
+    
     yield put({ type: 'SET_WARNING', payload: data.message, isOk});
 }
 

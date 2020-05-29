@@ -26,13 +26,18 @@ const Home = () => {
     return (
         <div className="home">
             <div className="home__list">
-                {movie.map((item, index) => {
-                    return <MovieItem
-                        info={item}
-                        key={index}
-                        seeDetails={seeDetails}
-                        deleteMovie={deleteMovie}/>
-                })}
+                {movie.length !== 0 ? 
+                    movie.map((item, index) => {
+                        return <MovieItem
+                            info={item}
+                            key={index}
+                            seeDetails={seeDetails}
+                            deleteMovie={deleteMovie}/>
+                    }) :
+                    <h2 className="home__title">
+                        There are no movies yet
+                    </h2>
+                }
             </div>
             <MovieCard 
                 display={display}

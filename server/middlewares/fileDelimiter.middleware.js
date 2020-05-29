@@ -10,7 +10,14 @@ const fileDelimiter = async (req, res, next) => {
                 .map(item => Object.fromEntries(
                     item.map(inner => inner.split(': '))
                 ))
-                .map(item => {return {...item, stars: item.stars.split(', ')}});
+                .map(item => {
+                    return {
+                        ...item,
+                        stars: item.stars ? 
+                            item.stars.split(', ') :
+                            next()
+                    }
+                });
             req.movies = arrOfObjects;
             next();
         });

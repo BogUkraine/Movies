@@ -1,21 +1,23 @@
 import { put, call } from 'redux-saga/effects';
-import httpHelper from '../../functions/httpHelper';
 
 const postMovies = async (file) => {
-    return httpHelper(
-        'http://localhost:5000/api/movie/file',
-        'POST',
-        file,
-        {'Content-Type': 'multipart/form-data'},
-    );
+    console.log('in');
+    const response = await fetch(
+        'http://localhost:5000/api/movie/file', {
+        method: 'POST',
+        body: file,
+    });
+    const data = await response.json();
+    return {data, isOk: response.ok};
 }
 
 function* addMovieWithFile({payload}) {
-    console.log('payload', payload);
     const {data, isOk} = yield call(postMovies, payload);
-    console.log('data',data);
-
-    //yield put({ type: 'SET_WARNING', payload: data.message, isOk});
+    yield put({ 
+        type: 'SET_WARNING', 
+        payload: data ? data.message : 'Something went wrong', 
+        isOk
+    });
 }
 
 export default addMovieWithFile;

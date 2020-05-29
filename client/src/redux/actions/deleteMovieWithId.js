@@ -10,9 +10,7 @@ const deleteMovie = async (id) => {
 }
 
 function* deleteMovieWithId({id}) {
-    const {data} = yield call(deleteMovie, id);
-    console.log('data',data);
-
+    yield call(deleteMovie, id);
     yield put({ type: 'FETCH_ALL_MOVIES' });
 }
 

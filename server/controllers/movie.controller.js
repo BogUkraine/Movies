@@ -50,4 +50,13 @@ exports.deleteMovie = async (req, res) => {
     }
 }
 
+exports.deleteMovies = async (req, res) => {
+    try {
+        await Movie.deleteMany();
+        return res.status(200).send({message: 'Movies were successfully deleted'});
+    } catch(error) {
+        return res.status(500).send({message: 'Can not delete movies', error});
+    }
+}
+
 //regex = new RegExp(escapeRegex(req.query.search), 'gi');

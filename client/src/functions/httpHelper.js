@@ -7,7 +7,6 @@ const httpHelper = async (url, method, body, headers) => {
             headers: { "Content-Type": "application/json", ...headers }
         });
         const data = await response.json();
-        console.log('response.ok', response.ok);
         return {data, isOk: response.ok};
     } catch (error) {
         return error;

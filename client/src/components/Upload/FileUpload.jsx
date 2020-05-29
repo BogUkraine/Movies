@@ -4,13 +4,12 @@ import { useDispatch } from 'react-redux';
 const FileUpload = ({isDisabled, setIsDisabled}) => {
     const dispatch = useDispatch();
     const fileInput = useRef();
-    const formData = new FormData();
+    let formData = new FormData();
 
     const uploadFile = () => {
-        console.log('file', fileInput.current.files[0]);
-        formData.append('file', fileInput.current.files[0]);
+        formData.append('filedata', fileInput.current.files[0]);
         dispatch({type: 'ADD_MOVIE_WITH_FILE', payload: formData});
-        //setIsDisabled(true)
+        setIsDisabled(true)
     };
 
     return (
@@ -20,7 +19,11 @@ const FileUpload = ({isDisabled, setIsDisabled}) => {
                     <label className="file__label">
                         <i className="fas fa-file-upload"></i>
                         <span className="file__title">Your file</span>
-                        <input type="file" className="file__input" ref={fileInput}/>
+                        <input 
+                            type="file" 
+                            className="file__input" 
+                            ref={fileInput}
+                            accept=".txt"/>
                     </label>
                 </div>
                 <p className="file__description">
