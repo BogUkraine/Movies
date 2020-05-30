@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha server/tests/*.test.js",
     "server": "nodemon server/index.js",
     "client": "npm run start --prefix client",
     "all": "concurrently \"npm run server\" \"npm run client\""
@@ -38,6 +38,7 @@
   },
   "devDependencies": {
     "mocha": "^7.2.0",
-    "nodemon": "^2.0.4"
+    "nodemon": "^2.0.4",
+    "supertest": "^4.0.2"
   }
 }
