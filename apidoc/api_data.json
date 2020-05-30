@@ -1,0 +1,488 @@
+[
+  {
+    "type": "delete",
+    "url": "/api/movie/:id",
+    "title": "delete movie by id",
+    "name": "DeleteMovie",
+    "group": "Movie",
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "message",
+            "description": "<p>Movie was successfully deleted</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n     \"message\": \"Movie was successfully deleted\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "SomethingWentWrong",
+            "description": "<p>message Can not delete movie.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "HTTP/1.1 500 Server Error\n{\n  \"message\": \"Can not delete movies\"\n  \"error\": \"Some error\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "server/routes/movie.routes.js",
+    "groupTitle": "Movie"
+  },
+  {
+    "type": "delete",
+    "url": "/api/movie/",
+    "title": "delete all movies",
+    "name": "DeleteMovie",
+    "group": "Movie",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "id",
+            "description": "<p>movie we want to delete.</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "message",
+            "description": "<p>Movies were successfully deleted</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n     \"message\": \" Movies were successfully deleted\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "SomethingWentWrong",
+            "description": "<p>message Can not delete movies.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "HTTP/1.1 500 Server Error\n{\n  \"message\": \"Can not delete movies\"\n  \"error\": \"Some error\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "server/routes/movie.routes.js",
+    "groupTitle": "Movie"
+  },
+  {
+    "type": "get",
+    "url": "/api/movie/",
+    "title": "get all movies",
+    "name": "GetMovie",
+    "group": "Movie",
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "message",
+            "description": "<p>Movies were successfully got.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Object[]",
+            "optional": false,
+            "field": "movies",
+            "description": "<p>movies</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n    \"movies\": [{\n         \"title\": \"Title\",\n         \"releaseYear\": \"1999\",\n         \"format\": \"DVD\",\n         \"stars\": [\"star one\", \"star two\"],\n     }],\n     \"message\": \"Movies were successfully got\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "SomethingWentWrong",
+            "description": "<p>message Can not get movies.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "HTTP/1.1 500\n{\n  \"message\": \"Can not get movies\"\n  \"error\": \"Some error\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "server/routes/movie.routes.js",
+    "groupTitle": "Movie"
+  },
+  {
+    "type": "get",
+    "url": "/api/movie/:id",
+    "title": "get movie by id",
+    "name": "GetMovie",
+    "group": "Movie",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "id",
+            "description": "<p>movie we want to get.</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "message",
+            "description": "<p>Movie was successfully got.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": false,
+            "field": "movie",
+            "description": "<p>movie</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n    \"movie\": {\n         \"title\": \"Title\",\n         \"releaseYear\": \"1999\",\n         \"format\": \"DVD\",\n         \"stars\": [\"star one\", \"star two\"],\n     },\n     \"message\": \"Movies were successfully got\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "SomethingWentWrong",
+            "description": "<p>message Can not get movie.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "HTTP/1.1 500\n{\n  \"message\": \"Can not get movie\"\n  \"error\": \"Some error\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "server/routes/movie.routes.js",
+    "groupTitle": "Movie"
+  },
+  {
+    "type": "get",
+    "url": "/api/movie/:keyword",
+    "title": "get movie user was searching",
+    "name": "GetMovie",
+    "group": "Movie",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "keyword",
+            "description": "<p>word we are searching.</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "message",
+            "description": "<p>Movies were successfully found.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Array",
+            "optional": false,
+            "field": "movies",
+            "description": "<p>movies</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n    \"movies\": [{\n         \"title\": \"Title\",\n         \"releaseYear\": \"1999\",\n         \"format\": \"DVD\",\n         \"stars\": [\"star one\", \"star two\"],\n     }],\n     \"message\": \"Movies were successfully got\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "SomethingWentWrong",
+            "description": "<p>message Can not find movies.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "HTTP/1.1 500\n{\n  \"message\": \"Can not get movies\"\n  \"error\": \"Some error\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "server/routes/movie.routes.js",
+    "groupTitle": "Movie"
+  },
+  {
+    "type": "post",
+    "url": "/api/movie/",
+    "title": "post movie with form data",
+    "name": "PostMovie",
+    "group": "Movie",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "title",
+            "description": "<p>movie title.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "releaseYear",
+            "description": "<p>movie release year.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "allowedValues": [
+              "\"DVD\"",
+              "\"VHS\"",
+              "\"Blu-Ray\""
+            ],
+            "optional": false,
+            "field": "format",
+            "description": "<p>movie format.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String[]",
+            "optional": false,
+            "field": "stars",
+            "description": "<p>movie stars.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Request-Example:",
+          "content": "{ \n   \"title\": \"title\",\n   \"releaseYear\": \"2000\",\n   \"format\": \"DVD\",\n   \"stars\": [\"star one\", \"star two\"],\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "message",
+            "description": "<p>Movie was successfully posted.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n     \"message\": \"Movie was successfully posted\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "SomethingWentWrong",
+            "description": "<p>message Can not post movies.</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "WrongTitle",
+            "description": "<p>message &quot;title&quot; is not allowed to be empty.</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "WrongReleaseYear",
+            "description": "<p>message &quot;releaseYear&quot; must be greater than 1900.</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "WrongFormat",
+            "description": "<p>message &quot;format&quot; must be one of [DVD, VHS, Blu-Ray].</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "WrongStars",
+            "description": "<p>message &quot;stars&quot; must be an array.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "HTTP/1.1 400\n{\n  \"message\": \"Can not post movie\"\n  \"error\": \"Some error\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "server/routes/movie.routes.js",
+    "groupTitle": "Movie"
+  },
+  {
+    "type": "post",
+    "url": "/api/movie/file/",
+    "title": "post movies with txt file",
+    "name": "PostMovie",
+    "group": "Movie",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "File",
+            "optional": false,
+            "field": "file",
+            "description": "<p>txt file.</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "message",
+            "description": "<p>Movies were successfully posted</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n     \"message\": \"Movies were successfully posted\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "SomethingWentWrong",
+            "description": "<p>message Can not post movies.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "HTTP/1.1 500 Server Error\n{\n  \"message\": \"Can not post movies\"\n  \"error\": \"Some error\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "server/routes/movie.routes.js",
+    "groupTitle": "Movie"
+  }
+]
