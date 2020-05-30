@@ -1,7 +1,6 @@
 import { put, call } from 'redux-saga/effects';
 
 const postMovies = async (file) => {
-    console.log('in');
     const response = await fetch(
         'http://localhost:5000/api/movie/file', {
         method: 'POST',

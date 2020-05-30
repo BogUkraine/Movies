@@ -32,7 +32,6 @@ const Form = ({isDisabled, setIsDisabled}) => {
             format: prevForm.format,
             stars: '',
         }));
-        console.log(form)
     }
 
     const addMovie = event => {
