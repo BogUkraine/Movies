@@ -78,6 +78,12 @@ a:visited, a:hover, a {
     }
 }
 
+.list {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
 ::-webkit-scrollbar {
     width: 10px;
     height: 10px;

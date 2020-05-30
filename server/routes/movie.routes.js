@@ -16,6 +16,7 @@ const upload = multer({
  
 router.get('/', controllers.getMovies);
 router.get('/:id', controllers.getMovie);
+router.get('/search/:keyword', controllers.searchMovies);
 router.post('/', validation(joiSchemas.oneMovie, 'body'), controllers.postMovie);
 router.delete('/:id', controllers.deleteMovie);
 router.delete('/', controllers.deleteMovies);
@@ -24,6 +25,7 @@ router.post('/file',
     upload.single("filedata"),
     fileDelimiter,
     validation(joiSchemas.file, 'movies'),
-    controllers.postFromFile);
+    controllers.postFromFile
+);
 
 module.exports = router;

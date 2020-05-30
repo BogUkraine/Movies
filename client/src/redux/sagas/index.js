@@ -4,9 +4,14 @@ import fetchAllMovies from '../actions/fetchAllMovies';
 import addMovieWithForm from '../actions/addMovieWithForm';
 import deleteMovieWithId from '../actions/deleteMovieWithId';
 import addMovieWithFile from '../actions/addMovieWithFile';
+import fetchSearchedMovies from '../actions/fetchSearchedMovies';
 
 function* fetchAllMoviesWatcher() {
     yield takeLatest('FETCH_ALL_MOVIES', fetchAllMovies);
+}
+
+function* fetchSearchedMoviesWatcher() {
+    yield takeLatest('FETCH_SEARCHED_MOVIES', fetchSearchedMovies);
 }
 
 function* addMovieWithFormWatcher() {
@@ -27,5 +32,6 @@ export default function* rootSaga() {
         addMovieWithFormWatcher(),
         deleteMovieWithIdWatcher(),
         addMovieWithFileWatcher(),
+        fetchSearchedMoviesWatcher(),
     ]);
 }

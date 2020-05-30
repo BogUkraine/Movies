@@ -5,7 +5,7 @@ import MovieItem from './MovieItem';
 import MovieCard from './MovieCard';
 
 const Home = () => {
-    const { movie } = useSelector(state => state, shallowEqual);
+    const { movieHome: movie } = useSelector(state => state, shallowEqual);
     const dispatch = useDispatch();
     const [display, setDisplay] = useState('none');
     const [description, setDescription] = useState({});
@@ -25,8 +25,8 @@ const Home = () => {
 
     return (
         <div className="home">
-            <div className="home__list">
-                {movie.length !== 0 ? 
+            <div className="home__list list">
+                {movie && movie.length !== 0 ? 
                     movie.map((item, index) => {
                         return <MovieItem
                             info={item}

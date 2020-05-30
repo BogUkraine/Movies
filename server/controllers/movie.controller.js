@@ -14,7 +14,7 @@ exports.getMovies = async (req, res) => {
 
 exports.getMovie = async (req, res) => {
     try {
-        const {movieId} = req.query.id;
+        const {movieId} = req.params.id;
         const movie = await Movie.findById(movieId);
         return res.status(200).send({message: 'Movie was successfully got', movie});
     } catch(error) {
@@ -59,4 +59,26 @@ exports.deleteMovies = async (req, res) => {
     }
 }
 
-//regex = new RegExp(escapeRegex(req.query.search), 'gi');
+exports.searchMovies = async (req, res) => {
+    try {
+        const keyword = req.params.keyword;
+        const regex = { $regex: keyword, $options: 'gi' }
+
+        const dataFromMovies = await Movie.find({title: regex});
+        const dataFromActors = await Movie.find({
+            stars: { $elemMatch: regex }
+        });
+        const togetherArray = [...dataFromActors, ...dataFromMovies];
+        
+        const setHepler = [...new Set(togetherArray.map((item) => JSON.stringify(item)))];
+        const movies = setHepler.map(item => JSON.parse(item));
+
+        return res.status(200).send({
+            message: 'Movies were successfully found',
+            movies,
+        });
+    } catch(error) {
+        return res.status(500).send({message: 'Can not find movies', error});
+    }
+}
+
