@@ -1,0 +1,19 @@
+.form {
+    display: flex;
+    flex-direction: column;
+    width: $form-width;
+    padding: $form-padding;
+
+    &__buttons {
+        display: flex;
+        justify-content: space-evenly;
+    }
+
+    &__description {
+        font-size: $font-size-big;
+    }
+
+    &__block {
+        margin-bottom: $form-label-margin;
+    }
+}

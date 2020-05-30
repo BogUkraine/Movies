@@ -1,0 +1,54 @@
+// sizes for different devices
+$desktop-width: 1440px;
+$tablet-width: 800px;
+$phone-width: 500px;
+
+//scrollbar
+$scrollbar-color: #082d3a;
+$scrollbar-thumb-color: #555555;
+$scrollbar-track-color: #eaeaea;
+
+// generic colors
+$color-dark: #22272c;
+$color-light: #2a4158;
+$font-color: #eaeaea;
+$color-white: #eaeaea;
+$color-grey: #999999;
+$color-red: #dc0000;
+$color-lighter: rgba(255,255,255, 0.3);
+
+// generic sizes
+$font-size: 16px;
+$font-size-big: 18px;
+
+// header
+$header-height: 60px;
+
+// main
+$main-height: 100vh;
+$home-padding: 20px;
+$movie-height: 50px;
+$card-width-big: 600px;
+$card-width-normal: 400px;
+$card-padding: 20px;
+
+// upload
+$file-wrapper-max-width: 200px;
+$file-wrapper-min-width: 200px;
+$file-label-width: 180px;
+$file-label-padding: 14px;
+
+// button
+$button-color-hover: #082d3a;
+$button-width: 140px;
+$button-height: 40px;
+$button-disabled-color: #082d3a;
+
+// fields
+$text-area-height: 80px;
+
+// form
+$form-width: 320px;
+$form-label-margin: 10px;
+$form-padding: 10px;
+$radio-circle-size: 20px;

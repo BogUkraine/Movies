@@ -1,0 +1,52 @@
+/* Customize the label (the form__block--radio) */
+.form__block--radio {
+    display: block;
+    position: relative;
+    padding-left: 36px;
+    margin-top: 10px;
+    cursor: pointer;
+    font-size: $font-size;
+    user-select: none;
+}
+  
+.form__block--radio .radio {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+  
+.radiomark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: $radio-circle-size;
+    width: $radio-circle-size;
+    background-color: $color-white;
+    border-radius: 50%;
+}
+
+  
+.form__block--radio .radio:checked ~ .radiomark {
+    background-color: $color-light;
+}
+  
+.radiomark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+  
+.form__block--radio .radio:checked ~ .radiomark:after {
+    display: block;
+}
+
+.form__block--radio .radiomark:after {
+    top: 7px;
+    left: 7px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: $color-white;
+}

@@ -1,0 +1,48 @@
+{
+  "name": "movies",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha server/tests/*.test.js",
+    "server": "nodemon server/index.js",
+    "client": "npm run start --prefix client",
+    "all": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BogUkraine/Movies.git"
+  },
+  "keywords": [
+    "js",
+    "node",
+    "react",
+    "express",
+    "mocha",
+    "redux",
+    "sagas"
+  ],
+  "author": "Bohdan Lysov <bogukraine@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BogUkraine/Movies/issues"
+  },
+  "homepage": "https://github.com/BogUkraine/Movies#readme",
+  "dependencies": {
+    "@hapi/joi": "^17.1.1",
+    "apidoc": "^0.22.1",
+    "config": "^3.3.1",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "mongoose": "^5.9.16",
+    "multer": "^1.4.2"
+  },
+  "devDependencies": {
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.1.0",
+    "eslint-plugin-import": "^2.20.2",
+    "mocha": "^7.2.0",
+    "nodemon": "^2.0.4",
+    "supertest": "^4.0.2"
+  }
+}

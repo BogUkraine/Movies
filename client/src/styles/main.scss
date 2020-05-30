@@ -1,0 +1,23 @@
+// INCLUDES
+@import './includes/variables';
+@import './includes/mixins';
+
+// GENERIC
+@import './blocks/generic';
+@import './blocks/radio_customize';
+
+// HEADER
+@import './blocks/header';
+
+// MAIN
+@import './blocks/home';
+@import './blocks/movie';
+@import './blocks/card';
+
+// SEARCH
+@import './blocks/search';
+
+// UPLOAD
+@import './blocks/upload';
+@import './blocks/form';
+@import './blocks/file';

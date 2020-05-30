@@ -1,0 +1,38 @@
+.upload {
+    display: flex;
+    flex-wrap: nowrap;
+    width: 100%;
+    height: $main-height;
+    background: $color-dark;
+    overflow-y: auto;
+
+    @include tablet-700px {
+        flex-direction: column;
+    }
+
+    &__wrapper {
+        flex: 4;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 20px 0;
+    }
+
+    &__file {
+        flex: 4;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        margin: 20px 0 100px 0;
+    }
+
+    &__separator {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 80px;
+    }
+
+}
