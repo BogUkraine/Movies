@@ -1,12 +1,5 @@
 const Movie = require('../models/Movie');
 
-const options = {
-  upsert: true,
-  new: true,
-  setDefaultsOnInsert: true,
-  unique: true,
-};
-
 exports.getMovies = async (req, res) => {
   try {
     const movies = await Movie.find();
@@ -31,8 +24,13 @@ exports.getMovie = async (req, res) => {
 
 exports.postMovie = async (req, res) => {
   try {
-    await Movie.updateOne(req.body, req.body, options);
-    return res.status(200).send({ message: 'Movie was successfully added' });
+    const doesMovieExist = await Movie.findOne(req.body);
+    if (doesMovieExist) {
+      return res.status(500).send({ message: 'This movie already exists' });
+    }
+
+    const movie = await Movie.create(req.body);
+    return res.status(200).send({ message: 'Movie was successfully added', movie });
   } catch (error) {
     return res.status(500).send({ message: error.message || 'Can not post movie' });
   }
@@ -40,9 +38,26 @@ exports.postMovie = async (req, res) => {
 
 exports.postFromFile = async (req, res) => {
   try {
-    req.movies.forEach(async (item) => {
-      await Movie.updateOne(item, item, options);
-    });
+    // const uniqueMovies = [];
+    // let movie = null;
+    // req.movies.forEach((item, index) => {
+    //   movie = await Movie.find(item);
+    //   if(!movie) {
+    //     uniqueMovies.push(movie);
+    //   }
+    //   movie = null;
+    // })
+
+    // const uniqueMovies = [];
+    // let movie = null;
+    // for (const item of req.movies) {
+    //   movie = await Movie.find(item);
+    //   if(!movie) {
+    //     uniqueMovies.push(movie);
+    //   }
+    //   movie = null;
+    // }
+    await Movie.insertMany(req.movies);
     return res.status(200).send({ message: 'Movies were successfully posted' });
   } catch (error) {
     return res.status(500).send({ message: 'Can not post movies', error });

@@ -6,7 +6,11 @@ module.exports = {
     releaseYear: Joi.number().integer().greater(1900).less(2021)
       .required(),
     format: Joi.string().valid('DVD', 'VHS', 'Blu-Ray').required(),
-    stars: Joi.array().items(Joi.string().min(2).max(30).required()),
+    stars: Joi.array().unique((a, b) => a === b).items(Joi.string()
+      .regex(/^[a-zA-Z ]{2,30}$/)
+      .min(2)
+      .max(30)
+      .required()),
   }),
   file: Joi.array().items(
     Joi.object({
@@ -14,7 +18,11 @@ module.exports = {
       releaseYear: Joi.number().integer().greater(1900).less(2021)
         .required(),
       format: Joi.string().valid('DVD', 'VHS', 'Blu-Ray').required(),
-      stars: Joi.array().items(Joi.string().min(2).max(30)),
+      stars: Joi.array().unique((a, b) => a === b).items(Joi.string()
+        .regex(/^[a-zA-Z ]{2,30}$/)
+        .min(2)
+        .max(30)
+        .required()),
     }),
   ),
 };
