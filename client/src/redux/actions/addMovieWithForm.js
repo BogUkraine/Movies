@@ -14,7 +14,7 @@ function* addMovieWithForm({payload}) {
     const formData = {...payload, stars};
     const {data, isOk} = yield call(postMovie, formData);
     
-    yield put({ type: 'SET_WARNING', payload: data.message, isOk});
+    yield put({ type: 'SET_WARNING', payload: data?.message, isOk});
 }
 
 export default addMovieWithForm;

@@ -1,7 +1,8 @@
-import React, { useState, useRef } from 'react';
-import { useDispatch } from 'react-redux';
+import React, { useState, useRef, useEffect } from 'react';
+import { useDispatch, useSelector, shallowEqual } from 'react-redux';
 
 const Form = ({isDisabled, setIsDisabled}) => {
+    const { warning: alertMessage } = useSelector(state => state, shallowEqual);
     const dispatch = useDispatch();
     const titleField = useRef();
     const yearField = useRef();
@@ -21,8 +22,7 @@ const Form = ({isDisabled, setIsDisabled}) => {
         });
     }
 
-    const clearForm = event => {
-        event.preventDefault();
+    const clearForm = () => {
         titleField.current.value = '';
         yearField.current.value = '';
         starsField.current.value = '';
@@ -34,6 +34,11 @@ const Form = ({isDisabled, setIsDisabled}) => {
         }));
     }
 
+    const clearButton = event => {
+        event.preventDefault();
+        clearForm();
+    }
+
     const addMovie = event => {
         event.preventDefault();
         setIsDisabled(true);
@@ -42,6 +47,12 @@ const Form = ({isDisabled, setIsDisabled}) => {
             payload: form,
         });
     }
+
+    useEffect(() => {
+        if(alertMessage.success) {
+            clearForm();
+        }
+    }, [alertMessage])
 
     return (
         <div className="upload__wrapper">
@@ -117,7 +128,7 @@ const Form = ({isDisabled, setIsDisabled}) => {
                     <button
                         className="form__button button"
                         disabled={isDisabled}
-                        onClick={clearForm}>
+                        onClick={clearButton}>
                         Clear
                     </button>
                 </div>

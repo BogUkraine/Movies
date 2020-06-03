@@ -10,7 +10,7 @@ const getMovies = async () => {
 
 function* fetchAllMovies() {
     const {data} = yield call(getMovies);
-    yield put({ type: 'SET_HOME_MOVIES', payload: data.movies});
+    yield put({ type: 'SET_HOME_MOVIES', payload: data?.movies});
 }
 
 export default fetchAllMovies;

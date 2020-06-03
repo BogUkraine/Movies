@@ -1,13 +1,13 @@
 import React from 'react';
 
-const MovieItem = ({info, deleteMovie, seeDetails}) => {
+const MovieItem = ({info, showDeleteBox, seeDetails}) => {
     return (
         <div className="home__movie movie">
             <div className="movie__title">{info.title}</div>
             <div className="movie__icons">
-                {deleteMovie ? 
+                {showDeleteBox ? 
                 <i className="fas fa-trash-alt fa--red"
-                onClick={() => deleteMovie(info._id)}/> :
+                onClick={() => showDeleteBox(info)}/> :
                 null
                 }
                 <i className="fas fa-eye fa--light" 

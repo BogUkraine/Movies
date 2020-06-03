@@ -1,0 +1,17 @@
+.delete-box {
+    position: absolute;
+    right: calc(50vw - 150px);
+    top: calc(50vh - 50px);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    width: $delete-box-width;
+    height: $delete-box-height;
+    background-color: $color-light-lighter;
+
+    &__title {
+        width: 100%;
+        margin: 5px 0;
+        text-align: center;
+    }
+}
