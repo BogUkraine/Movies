@@ -1,0 +1,25 @@
+.pages-list {
+    display: flex;
+    width: $pages-list-width;
+    justify-content: center;
+    align-items: flex-end;
+    margin-bottom: $pages-list-margin-bottom;
+
+    &__button {
+        width: $pages-list-button-width;
+        height: $pages-list-button-height;
+        border-radius: 50%;
+        background-color: $color-light-lighter;
+        margin: $pages-list-button-margin;
+        cursor: pointer;
+        border: 0;
+        color: $font-color;
+        font-size: $font-size;
+        transition: background-color 0.5s;
+        outline: none;
+
+        &:hover {
+            background-color: $color-light;
+        }
+    }
+}

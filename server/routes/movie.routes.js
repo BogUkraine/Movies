@@ -19,9 +19,12 @@ const upload = multer({
 });
 
 /**
- * @api {get} /api/movie/ get all movies
+ * @api {get} /api/movie/:page:limit get movies by page with limit
  * @apiName GetMovie
  * @apiGroup Movie
+ *
+ * @apiParam {String} page search with this page.
+ * @apiParam {String} limit search with this limit.
  *
  * @apiSuccess {String} message Movies were successfully got.
  * @apiSuccess {Object[]} movies movies
@@ -45,7 +48,7 @@ const upload = multer({
  *       "error": "Some error"
  *     }
  */
-router.get('/', controllers.getMovies);
+router.get('/:page:limit', controllers.getMovies);
 
 /**
  * @api {get} /api/movie/:id get movie by id

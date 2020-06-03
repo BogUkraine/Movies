@@ -9,10 +9,22 @@ const options = {
 
 exports.getMovies = async (req, res) => {
   try {
-    const movies = await Movie.find();
+    let { page, limit } = req.params;
+    page = parseInt(page, 10);
+    limit = parseInt(limit, 10);
+
+    const moviesCount = await Movie.estimatedDocumentCount();
+    const movies = await Movie.find()
+      .sort('title')
+      .skip(page * limit)
+      .limit(limit);
+
     return res.status(200).send({
       message: 'Movies were successfully got',
       movies,
+      page,
+      limit,
+      moviesCount,
     });
   } catch (error) {
     return res.status(500).send({ message: 'Can not get movies', error });
