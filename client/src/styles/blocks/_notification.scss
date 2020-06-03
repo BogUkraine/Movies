@@ -1,0 +1,19 @@
+.notification {
+    position: absolute;
+    width: $notification-width;
+    min-height: $notification-height;
+    top: $notification-top;
+    right: $notification-right;
+    border-radius: $notification-border-radius;
+    padding: $notification-padding;
+
+    &__title {
+        font-size: $font-size-big;
+        font-weight: 700;
+        margin: $notification-title-margin;
+    }
+
+    &__description {
+        margin: $notification-description-margin;
+    }
+}

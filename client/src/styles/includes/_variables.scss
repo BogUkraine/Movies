@@ -11,6 +11,7 @@ $scrollbar-track-color: #eaeaea;
 // generic colors
 $color-dark: #22272c;
 $color-light: #2a4158;
+$color-light-lighter: #3a6168;
 $font-color: #eaeaea;
 $color-white: #eaeaea;
 $color-grey: #999999;
@@ -32,6 +33,12 @@ $card-width-big: 600px;
 $card-width-normal: 400px;
 $card-padding: 20px;
 
+$pages-list-width: 80%;
+$pages-list-button-width: 50px;
+$pages-list-button-height: 50px;
+$pages-list-button-margin: 0 20px;
+$pages-list-margin-bottom: 50px;
+
 // upload
 $file-wrapper-max-width: 200px;
 $file-wrapper-min-width: 200px;
@@ -52,3 +59,17 @@ $form-width: 320px;
 $form-label-margin: 10px;
 $form-padding: 10px;
 $radio-circle-size: 20px;
+
+// notification
+$notification-width: 250px;
+$notification-height: 70px;
+$notification-top: 90px;
+$notification-right: 20px;
+$notification-border-radius: 10px;
+$notification-padding: 10px;
+$notification-title-margin: 5px 0;
+$notification-description-margin: 0;
+
+//delete-box
+$delete-box-width: 300px;
+$delete-box-height: 100px;

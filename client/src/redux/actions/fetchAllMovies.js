@@ -1,16 +1,16 @@
 import { put, call } from 'redux-saga/effects';
 import httpHelper from '../../functions/httpHelper';
 
-const getMovies = async () => {
+const getMovies = async (page, limit) => {
     return httpHelper(
-        'http://localhost:5000/api/movie/',
+        `http://localhost:5000/api/movie/${page}${limit}`,
         'GET'
     );
 }
 
-function* fetchAllMovies() {
-    const {data} = yield call(getMovies);
-    yield put({ type: 'SET_HOME_MOVIES', payload: data.movies});
+function* fetchAllMovies({payload}) {
+    const {data} = yield call(getMovies, payload, 15);
+    yield put({ type: 'SET_HOME_MOVIES', payload: data});
 }
 
 export default fetchAllMovies;

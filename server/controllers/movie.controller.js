@@ -1,11 +1,30 @@
 const Movie = require('../models/Movie');
 
+const options = {
+  upsert: true,
+  new: true,
+  setDefaultsOnInsert: true,
+  unique: true,
+};
+
 exports.getMovies = async (req, res) => {
   try {
-    const movies = await Movie.find();
+    let { page, limit } = req.params;
+    page = parseInt(page, 10);
+    limit = parseInt(limit, 10);
+
+    const moviesCount = await Movie.estimatedDocumentCount();
+    const movies = await Movie.find()
+      .sort('title')
+      .skip(page * limit)
+      .limit(limit);
+
     return res.status(200).send({
       message: 'Movies were successfully got',
       movies,
+      page,
+      limit,
+      moviesCount,
     });
   } catch (error) {
     return res.status(500).send({ message: 'Can not get movies', error });
@@ -24,8 +43,8 @@ exports.getMovie = async (req, res) => {
 
 exports.postMovie = async (req, res) => {
   try {
-    const movie = await Movie.create(req.body);
-    return res.status(200).send({ message: 'Movie was successfully added', movie });
+    await Movie.updateOne(req.body, req.body, options);
+    return res.status(200).send({ message: 'Movie was successfully added' });
   } catch (error) {
     return res.status(500).send({ message: error.message || 'Can not post movie' });
   }
@@ -33,7 +52,9 @@ exports.postMovie = async (req, res) => {
 
 exports.postFromFile = async (req, res) => {
   try {
-    await Movie.insertMany(req.movies);
+    req.movies.forEach(async (item) => {
+      await Movie.updateOne(item, item, options);
+    });
     return res.status(200).send({ message: 'Movies were successfully posted' });
   } catch (error) {
     return res.status(500).send({ message: 'Can not post movies', error });
