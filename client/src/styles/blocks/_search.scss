@@ -5,4 +5,8 @@
     background-color: $color-dark;
     box-sizing: border-box;
     overflow-y: auto;
+
+    &__list {
+        margin-bottom: 50px;
+    }
 }
