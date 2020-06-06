@@ -15,6 +15,7 @@ exports.getMovies = async (req, res) => {
 
     const moviesCount = await Movie.estimatedDocumentCount();
     const movies = await Movie.find()
+      .collation({ locale: 'en' })
       .sort('title')
       .skip(page * limit)
       .limit(limit);
@@ -43,6 +44,11 @@ exports.getMovie = async (req, res) => {
 
 exports.postMovie = async (req, res) => {
   try {
+    const movie = await Movie.exists(req.body);
+    if (movie) {
+      return res.status(500).send({ message: 'Movie already exists' });
+    }
+
     await Movie.updateOne(req.body, req.body, options);
     return res.status(200).send({ message: 'Movie was successfully added' });
   } catch (error) {

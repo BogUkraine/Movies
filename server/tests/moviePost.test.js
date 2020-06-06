@@ -9,7 +9,7 @@ it('should post one movie', (done) => {
       title: 'Title',
       releaseYear: '2000',
       format: 'DVD',
-      stars: ['star one, star two, star three'],
+      stars: ['star one', 'star two', 'star three'],
     })
     .expect((response) => {
       assert.equal(response.body.message, 'Movie was successfully added');

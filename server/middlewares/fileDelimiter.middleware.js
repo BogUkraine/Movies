@@ -5,6 +5,10 @@ const fileDelimiter = async (req, res, next) => {
   try {
     const { file } = req;
     fs.readFile(file.path, 'utf8', (err, fileData) => {
+      if (!fileData || fileData.trim() === '') {
+        return res.status(400).send({ message: 'Empty file' });
+      }
+
       const data = fileData.trim().split('\n\n');
       const arrOfObjects = data
         .map((item) => item.split('\n'))
